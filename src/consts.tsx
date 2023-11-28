@@ -1,0 +1,1 @@
+export const STATUS_SORT_TEMPLATE = ["ONLINE", "PAUSED", "STOPPED", "DRAFT"];

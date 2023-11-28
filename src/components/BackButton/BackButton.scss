@@ -1,0 +1,29 @@
+.back-button {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+
+    color: #222;
+    font-family: Nunito;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    &__icon {
+        width: 16px;
+        height: 8px;
+        transform: rotate(-90deg);
+        filter: brightness(0);
+    }
+}
