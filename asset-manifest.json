@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/github.io/PrettyTestTable/static/css/main.c88e3faa.css",
+    "main.js": "/github.io/PrettyTestTable/static/js/main.46a539a6.js",
+    "index.html": "/github.io/PrettyTestTable/index.html",
+    "static/media/search.svg": "/github.io/PrettyTestTable/static/media/search.5a18a1eb55a4ff3f0529c2fd0f2a263f.svg",
+    "static/media/arrow.svg": "/github.io/PrettyTestTable/static/media/arrow.250e36d9a5c5494a799719e05ddb4adc.svg",
+    "main.c88e3faa.css.map": "/github.io/PrettyTestTable/static/css/main.c88e3faa.css.map",
+    "main.46a539a6.js.map": "/github.io/PrettyTestTable/static/js/main.46a539a6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c88e3faa.css",
+    "static/js/main.46a539a6.js"
+  ]
+}
