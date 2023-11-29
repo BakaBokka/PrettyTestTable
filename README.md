@@ -11,7 +11,7 @@ https://bakabokka.github.io/PrettyTestTable/
 * When a user hovers over a table row it should be highlighted as shown in the mockup.
 * Sites in the corresponding column must be displayed without the http or https protocols and www prefix.
 * A user should be able to filter by item name. If the item exists we hide other
-records and show only items that were found in the list. If no records are found there should be a message with the corresponding text and a reset button (see Figma).
+records and show only items that were found in the list. If no records are found there should be a message with the corresponding text and a reset button (see [Figma](https://www.figma.com/file/PFdFpIajQbuGibIbEYnE3l/Interview-task-for-frontend-developers?node-id=0%3A1&mode=dev)).
 * A user should be able to sort (ASC, DESC) by clicking on the titles of the columns:
   - name, type and site should be sorted in alphabetical order
 * status should be sorted in:
