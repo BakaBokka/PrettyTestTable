@@ -1,50 +1,40 @@
-# PrettyTestTable
-Pretty Test Table
+# Pretty Test Table
 
-# Getting Started with Create React App
+https://bakabokka.github.io/PrettyTestTable/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+****
+**React, Typescript, react-router-dom, axios, sass**
 
-## Available Scripts
+### What was the task?
 
-In the project directory, you can run:
+* The table is filled with the data that is requested from the JSON file using the [API](https://development.kameleoon.net/oivanov/frontend-interview-task-api). You need to clone the project to your local machine and run it.
+* When a user hovers over a table row it should be highlighted as shown in the mockup.
+* Sites in the corresponding column must be displayed without the http or https protocols and www prefix.
+* A user should be able to filter by item name. If the item exists we hide other
+records and show only items that were found in the list. If no records are found there should be a message with the corresponding text and a reset button (see Figma).
+* A user should be able to sort (ASC, DESC) by clicking on the titles of the columns:
+  - name, type and site should be sorted in alphabetical order
+* status should be sorted in:
+  - ASC: Online, Paused, Stopped, Draft
+  - DESC: Draft, Stopped, Paused, Online
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+****
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Additional tasks
 
-### `npm test`
+* Using the react-router-dom library, implement routing between three pages: dashboard, results, and finalize. And don't forget to load the necessary data for each page.
+* When a user clicks on the Results or Finalize button on dashboard page, you should redirect to URLs /results/[testId] and /finalize/[testId] accordingly, without reloading the browser window.
+* It will be a plus if you:
+  - will use TypeScript to complete the task
+  - write tests
+  - if a user can interact with the interface using the keyboard.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### How to try?
+* Clone repo: `git clone` https://github.com/BakaBokka/PrettyTestTable.git
+* Set dependencies: `npm i`
+* Create production-build: `npm run build`
+* Runs the app in the development mode on the local server: `npm start`
+* Deploy production-build on GitHub Pages: `npm run deploy`
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
+****
