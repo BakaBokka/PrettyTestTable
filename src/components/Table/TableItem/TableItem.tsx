@@ -20,7 +20,7 @@ const TableItem: FC<ITableItem> = ({id, name, type, status, site }) => {
     };
 
     return (
-        <li className={`table-row ${status}`}>
+        <li aria-label="Test table row" tabIndex={0} className={`table-row ${status}`}>
             <p className="table-row__item name">{name}</p>
             <p className="table-row__item type">{formattedType}</p>
             <p className="table-row__item status">{formattedStatus}</p>

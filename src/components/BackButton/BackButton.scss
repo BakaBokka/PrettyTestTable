@@ -17,13 +17,20 @@
     border: none;
     outline: none;
     background-color: transparent;
-
+    
     cursor: pointer;
+    transition-duration: 0.5s;
 
     &__icon {
         width: 16px;
         height: 8px;
         transform: rotate(-90deg);
         filter: brightness(0);
+    }
+
+    &:hover,
+    &:focus {
+        transition-duration: 0.5s;
+        gap: 5px;
     }
 }

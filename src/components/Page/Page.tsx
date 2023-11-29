@@ -2,7 +2,6 @@ import React, {FC} from "react";
 import { useLocation } from 'react-router-dom';
 import BackButton from "../BackButton/BackButton";
 import "./Page.scss";
-
 interface PageProps {
     title: string;
     subtitle?: string;
@@ -15,8 +14,8 @@ const Page: FC<PageProps> = ({ title, subtitle, children }) => {
 
     return (
         <section className="page">
-            <h2 className="page__title">{title}</h2>
-           {!!subtitle && <h3 className="page__subtitle">{subtitle}</h3>}
+            <h2 aria-label="Page title" className="page__title">{title}</h2>
+           {!!subtitle && <h3 aria-label="Page subtitle" className="page__subtitle">{subtitle}</h3>}
             <div className="page__content">{children}</div>
            {isNotMainPage && <BackButton/>}
         </section>

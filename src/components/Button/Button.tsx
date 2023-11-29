@@ -9,7 +9,7 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({ title, theme = ButtonTheme.GREEN, onClick }) => {
-    return <button className={`button ${theme}`} onClick={onClick}>{title}</button>;
+    return <button aria-label={`${title} button`} tabIndex={0} className={`button ${theme}`} onClick={onClick}>{title}</button>;
 };
 
 export default Button;

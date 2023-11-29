@@ -59,7 +59,7 @@ function App() {
     }, [data, sortDirection]);
 
     return (
-        <div className="App">
+        <div className="app">
             <Routes>
                 <Route
                     path="/"

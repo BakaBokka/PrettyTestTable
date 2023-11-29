@@ -17,10 +17,10 @@ const Table: FC<TableProps> = ({ tableData, onSort }) => {
     };
 
     return (
-        <section className="table">
+        <section aria-label="Table of tests" className="table">
             <div className="table__wrap">
-                <div className="table__header">
-                    <p className="table__caption" onClick={() => onSort("name")}>
+                <div aria-label="Table header" className="table__header">
+                    <p aria-label="Table column caption" className="table__caption" onClick={() => onSort("name")}>
                         NAME
                         <img className="table__icon" src={arrow} alt="Arrow icon" />
                     </p>
