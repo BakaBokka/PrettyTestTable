@@ -2,10 +2,10 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { ButtonTheme, ITableItem, ButtonTitle, TableItemStatus, TableItemType } from "../../../types/types";
 import Button from "../../Button/Button";
-import { capitalizeFirstLetter, fetchTest } from "../../../helpers";
+import { capitalizeFirstLetter } from "../../../helpers";
 import "./TableItem.scss";
 
-const TableItem: FC<ITableItem> = ({id, name, type, status, site }) => {
+const TableItem: FC<ITableItem> = ({ id, name, type, status, site }) => {
     const isDraft = status === TableItemStatus.DRAFT;
     const buttonTitle = isDraft ? ButtonTitle.FINALIZE : ButtonTitle.RESULTS;
     const buttonTheme = isDraft ? ButtonTheme.DARK : ButtonTheme.GREEN;
@@ -16,7 +16,6 @@ const TableItem: FC<ITableItem> = ({id, name, type, status, site }) => {
     const handleRedirect = () => {
         const query = isDraft ? "finalize" : "results";
         navigate(`/${query}/${id}`);
-        fetchTest(id)
     };
 
     return (

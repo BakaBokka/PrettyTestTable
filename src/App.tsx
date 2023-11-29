@@ -7,6 +7,7 @@ import useRequestData from "./hooks/useRequestData";
 import { createSortFunction, fetchSites, fetchTests, removeUrlPrefix } from "./helpers";
 import TableEmptyPlug from "./components/Table/TableEmptyPlug/TableEmptyPlug";
 import { Route, Routes } from "react-router-dom";
+import TestInfo from "./components/TestInfo/TestInfo";
 import "./App.scss";
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
     const [searchValue, setSearchValue] = useState<string>("");
     const [reload, setReload] = useState<boolean>(false);
     const [sortDirection, setSortDirection] = useState(SortDirections.ASC);
-    const [tests] = useRequestData<Test>(fetchTests, reload);
-    const [sites] = useRequestData<Site>(fetchSites, reload);
+    const [tests, testsLoading] = useRequestData<Test>(fetchTests, reload);
+    const [sites, sitesLoading] = useRequestData<Site>(fetchSites, reload);
+    const isLoading = testsLoading || sitesLoading;
     const noData = data.length === 0;
 
     const assembleData = useCallback(() => {
@@ -45,18 +47,21 @@ function App() {
         },
         [data]
     );
-    
+
     const handleReloadData = () => {
         setReload(true);
         setSearchValue("");
     };
 
-    const handleSort = useCallback((column: keyof ITableItem) => {
-        const direction = sortDirection === SortDirections.ASC ?  SortDirections.DESC :  SortDirections.ASC
-        setSortDirection(direction);
-        const sortedData = data.sort(createSortFunction<ITableItem>(column, direction));
-        setTableData(sortedData);
-    }, [data, sortDirection]);
+    const handleSort = useCallback(
+        (column: keyof ITableItem) => {
+            const direction = sortDirection === SortDirections.ASC ? SortDirections.DESC : SortDirections.ASC;
+            setSortDirection(direction);
+            const sortedData = data.sort(createSortFunction<ITableItem>(column, direction));
+            setTableData(sortedData);
+        },
+        [data, sortDirection]
+    );
 
     return (
         <div className="app">
@@ -67,14 +72,15 @@ function App() {
                         <Page title={PageTitle.DASHBOARD}>
                             <>
                                 <Search resultsQuantity={data.length} searchValue={searchValue} onSearch={handleSearch} />
-                                {!noData && <Table tableData={data} onSort={handleSort} />}
-                                {noData && <TableEmptyPlug onClick={handleReloadData} />}
+                                {!noData && !isLoading && <Table tableData={data} onSort={handleSort} sortDirection={sortDirection} />}
+                                {noData && !isLoading && <TableEmptyPlug onClick={handleReloadData} />}
+                                {isLoading && <span>Loading...</span>}
                             </>
                         </Page>
                     }
                 />
-                <Route path="/results/:testId" element={<Page title={PageTitle.RESULTS} subtitle="Order basket redesing" />} />
-                <Route path="/finalize/:testId" element={<Page title={PageTitle.FINALIZE} subtitle="Spring promotion" />} />
+                <Route path="/results/:testId" element={<Page title={PageTitle.RESULTS} subtitle="Order basket redesing" children={<TestInfo />} />} />
+                <Route path="/finalize/:testId" element={<Page title={PageTitle.FINALIZE} subtitle="Spring promotion" children={<TestInfo />} />} />
             </Routes>
         </div>
     );

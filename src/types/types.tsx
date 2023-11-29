@@ -11,6 +11,13 @@ export enum TableItemStatus {
     STOPPED = "STOPPED",
 }
 
+export enum TableColumnCaption {
+    NAME = "NAME",
+    TYPE = "TYPE",
+    STATUS = "STATUS",
+    SITE = "SITE",
+}
+
 export enum ButtonTitle {
     RESULTS = "Results",
     FINALIZE = "Finalize",

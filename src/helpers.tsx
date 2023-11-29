@@ -7,7 +7,8 @@ export const fetchTests = async () => {
 };
 
 export const fetchTest = async (id: number) => {
-    return await axios.get<Test[]>(`http://localhost:3100/tests/${id}`);
+    const response = await axios.get<Test>(`http://localhost:3100/tests/${id}`);
+    return response.data;
 };
 
 export const fetchSites = async () => {
