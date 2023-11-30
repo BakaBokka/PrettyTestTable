@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import search from "../../images/search.svg";
 import "./Search.scss";
 interface SearchProps {
@@ -7,7 +7,7 @@ interface SearchProps {
     onSearch: (value: string) => void;
 }
 
-const Search: FC<SearchProps> = ({ resultsQuantity = 0, searchValue, onSearch }) => {
+const Search: FC<SearchProps> = memo(({ resultsQuantity = 0, searchValue, onSearch }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         onSearch(e?.target.value);
     };
@@ -28,6 +28,6 @@ const Search: FC<SearchProps> = ({ resultsQuantity = 0, searchValue, onSearch })
             <p className="search__quantity">{`${resultsQuantity} tests`}</p>
         </section>
     );
-};
+});
 
 export default Search;
