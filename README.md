@@ -7,7 +7,7 @@ https://bakabokka.github.io/PrettyTestTable/
 
 ### What was the task?
 
-* The table is filled with the data that is requested from the JSON file using the [API](https://development.kameleoon.net/oivanov/frontend-interview-task-api). You need to clone the project to your local machine and run it.
+* The table is filled with the data that is requested from the JSON file ~~using the [API](https://development.kameleoon.net/oivanov/frontend-interview-task-api)~~. You need to clone the project to your local machine and run it.
 * When a user hovers over a table row it should be highlighted as shown in the mockup.
 * Sites in the corresponding column must be displayed without the http or https protocols and www prefix.
 * A user should be able to filter by item name. If the item exists we hide other
@@ -36,7 +36,7 @@ records and show only items that were found in the list. If no records are found
 * Create production-build: `npm run build`
 * Runs the app in the development mode on the local server: `npm start`
 * Deploy production-build on GitHub Pages: `npm run deploy`
-* And you will need server API from here [Link](https://development.kameleoon.net/oivanov/frontend-interview-task-api)
+* ~~And you will need server API from here [Link](https://development.kameleoon.net/oivanov/frontend-interview-task-api)~~
 
 ****
 
