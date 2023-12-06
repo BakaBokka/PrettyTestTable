@@ -1,0 +1,94 @@
+.modal {
+    position: fixed;
+    top: 20%;
+    left: 35%;
+    z-index: 1;
+
+    max-width: 30%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: #fff;
+    border-radius: 10px;
+
+    &__title {
+        font-family: Roboto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        color: #474747;
+        margin: 0;
+    }
+
+    &__divider {
+        width: 100%;
+    }
+
+    &__underlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background: #000;
+        opacity: 0.5;
+    }
+
+    &__close-button {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+
+        padding: 0;
+
+        outline: none;
+        border: none;
+        background: transparent;
+
+        font-size: 30px;
+        transform: rotate(45deg);
+        color: #474747;
+
+        cursor: pointer;
+    }
+}
+
+.transition {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.4);
+}
+
+.transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.transition-enter-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+.transition-exit {
+    opacity: 0;
+    transform: scale(0.4);
+}
+
+.transition-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+}

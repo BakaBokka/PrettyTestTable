@@ -9,6 +9,7 @@ import TableEmptyPlug from "./components/Table/TableEmptyPlug/TableEmptyPlug";
 import { Route, Routes } from "react-router-dom";
 import TestInfo from "./components/TestInfo/TestInfo";
 import "./App.scss";
+import Modal from "./components/Modal/Modal";
 
 function App() {
     const [data, setData] = useState<ITableItem[]>([]);
@@ -17,12 +18,13 @@ function App() {
     const [sortDirection, setSortDirection] = useState(SortDirections.ASC);
     const [tests, testsLoading] = useRequestData<Test>(fetchTests, reload);
     const [sites, sitesLoading] = useRequestData<Site>(fetchSites, reload);
+    const [showModal, setShowModal] = useState<boolean>(true);
     const isLoading = testsLoading || sitesLoading;
     const noData = data.length === 0;
 
     const assembleData = useCallback(() => {
-        const sitesById = Object.fromEntries(sites.map((el) => [el.id, el]));
-        const result: ITableItem[] = tests.map(({ siteId, ...other }) => ({ ...other, site: removeUrlPrefix(sitesById[siteId]?.url) }));
+        const sitesById = Object.fromEntries(sites?.map((el) => [el.id, el]));
+        const result: ITableItem[] = tests?.map(({ siteId, ...other }) => ({ ...other, site: removeUrlPrefix(sitesById[siteId]?.url) }));
         setTableData(result);
         setReload(false);
     }, [tests, sites]);
@@ -63,6 +65,10 @@ function App() {
         [data, sortDirection]
     );
 
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
     return (
         <div className="app">
             <Routes>
@@ -82,6 +88,9 @@ function App() {
                 <Route path="/results/:testId" element={<Page title={PageTitle.RESULTS} subtitle="Order basket redesing" children={<TestInfo />} />} />
                 <Route path="/finalize/:testId" element={<Page title={PageTitle.FINALIZE} subtitle="Spring promotion" children={<TestInfo />} />} />
             </Routes>
+            <Modal title="Test Portal" shown={showModal} onClose={handleCloseModal}>
+                <h3>This Modal is just to test Portal Component</h3>
+            </Modal>
         </div>
     );
 }

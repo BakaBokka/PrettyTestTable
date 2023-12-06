@@ -40,6 +40,11 @@ export enum SortDirections {
     DESC = "DESC",
 }
 
+export enum DataType {
+    MOCK = "MOCK",
+    REAL = "REAL"
+}
+
 export interface Site {
     id: number;
     url: string;
