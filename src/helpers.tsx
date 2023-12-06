@@ -3,16 +3,16 @@ import { Site, SortDirections, TableItemStatus, Test } from "./types/types";
 import { STATUS_SORT_TEMPLATE } from "./consts";
 
 export const fetchTests = async () => {
-    return await axios.get<Test[]>("/mockData/tests.json");
+    return await axios.get<Test[]>("mockData/tests.json");
 };
 
 export const fetchTest = async (id: number) => {
-    const response = await axios.get<Test[]>(`/mockData/tests.json`);
+    const response = await axios.get<Test[]>(`mockData/tests.json`);
     return response.data.find((item) => item.id === id);
 };
 
 export const fetchSites = async () => {
-    return await axios.get<Site[]>("/mockData/sites.json");
+    return await axios.get<Site[]>("mockData/sites.json");
 };
 
 export const removeUrlPrefix = (url: string) => {
